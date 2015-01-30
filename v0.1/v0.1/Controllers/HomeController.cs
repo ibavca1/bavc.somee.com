@@ -16,20 +16,30 @@ namespace v0._1.Controllers
 
         public ActionResult Index()
         {
-            //System.Configuration.Configuration rootWebConfig =
-            //    System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
-            //System.Configuration.ConnectionStringSettings connString;
-            //if (0 < rootWebConfig.ConnectionStrings.ConnectionStrings.Count)
-            //{
-            //    connString =
-            //        rootWebConfig.ConnectionStrings.ConnectionStrings["db_9ba681_somee"];
-            //    if (null != connString)
-            //        return View("Index",(Object)connString.ConnectionString);
-            //    else
-            //        return View("Index", (Object)"Error");
-            //}
+            GetConnectionString();
             return View();
         }
 
+        public string GetConnectionString()
+        {
+            System.Configuration.Configuration rootWebConfig =
+            System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
+            System.Configuration.ConnectionStringSettings connString;
+            if (0 < rootWebConfig.ConnectionStrings.ConnectionStrings.Count)
+            {
+                connString =
+                    rootWebConfig.ConnectionStrings.ConnectionStrings["db_9ba681_somee"];
+                if (null != connString)
+                    return connString.ConnectionString;
+                else
+                    return "Error";
+            }
+            return null;
+        }
+
+        public int GetCount()
+        {
+            return 1;
+        }
     }
 }
