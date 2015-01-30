@@ -13,10 +13,10 @@ namespace v0._1.Tests.Controllers
         [TestMethod]
         public void TestIndex()
         {
-            HomeController _testController = new HomeController();
+            HomeController _testController = GetHomeController();
             string expected = "Server=MYSQL5002.HostBuddy.com;Database=db_9ba681_somee;Uid=9ba681_somee;Pwd=vtufntkrf1;";
             string actual=_testController.GetConnectionString();
-            Assert.Equals(expected, actual);
+            //Assert.Equals(expected, actual);
             Assert.AreEqual(expected, actual, "Строка соеденения не совпадает");
         }
 
@@ -35,7 +35,7 @@ namespace v0._1.Tests.Controllers
             {
                 Controller = _controller,
             };
-            return null;
+            return _controller;
         }
     }
 }

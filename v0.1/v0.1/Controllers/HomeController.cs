@@ -17,7 +17,7 @@ namespace v0._1.Controllers
         public ActionResult Index()
         {
             GetConnectionString();
-            return View();
+            return View((Object)GetConnectionString());
         }
 
         public string GetConnectionString()
