@@ -21,12 +21,14 @@ namespace v0._1.Controllers
         {
             //GetConnectionString();
             BavcWebRequest bavcRequest = new BavcWebRequest();
+            Test();
             string content = bavcRequest.GetPageContent(new Uri("http://randstuff.ru/number/"), Encoding.Default);
             return View((Object)GetConnectionString());
         }
 
         public string GetConnectionString()
         {
+            Test();
             System.Configuration.Configuration rootWebConfig =
             System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/");
             System.Configuration.ConnectionStringSettings connString;
@@ -42,6 +44,11 @@ namespace v0._1.Controllers
             return null;
         }
 
+        public void Test()
+        {
+            BavcWebRequest bavcRequest = new BavcWebRequest();
+            bavcRequest.GetHeadDocument(Encoding.Default);
+        }
         public int GetCount()
         {
             return 1;

@@ -9,6 +9,7 @@ using HtmlAgilityPack;
 
 namespace v0._1.Models.Extensions
 {
+    #region WebPage
     public class WebPage
     {
         private WebContext _context;
@@ -16,14 +17,17 @@ namespace v0._1.Models.Extensions
         private string _content;
         private Page _page;
     }
+    #endregion
 
+    #region Page
     public class Page
     {
         private string _head;
         private string _body;
         private string _footer;
-        private Tuple _options;
+        private List<Tuple<int,string>> _options;
     }
+    #endregion
 
     #region Класс контекста страницы
     public class WebContext
@@ -38,6 +42,8 @@ namespace v0._1.Models.Extensions
         #region Переменные
         private WebPage _page;
         private Encoding _encoding;
+        private string _content;
+        private Uri _uri;
         #endregion
 
         #region Содержание страницы в HTML
@@ -49,6 +55,8 @@ namespace v0._1.Models.Extensions
         public string GetPageContent(Uri uri,Encoding encoding)
         {
             string result;
+            //добавил ссылку
+            _uri = uri;
             HttpWebResponse response = GetAnser(uri);
 
             using (StreamReader stream=new StreamReader(response.GetResponseStream(), encoding))
@@ -88,12 +96,27 @@ namespace v0._1.Models.Extensions
         #endregion
 
         #region Получить заголовок
-        public void GetHeadDocument()
+        public void GetHeadDocument(Encoding encoding)
         {
+            _uri = new Uri("http://randstuff.ru/number/");
             HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(GetPageContent(null, _encoding));
+            string content = GetPageContent(_uri, encoding);
+            encoding = doc.DetectEncodingHtml(content);
+            doc.LoadHtml(content);
+            GetHeadDocument(doc);
+        }
+
+        public HtmlNode GetHeadDocument(HtmlDocument doc)
+        {
+            var encoding = doc.DeclaredEncoding;
+            HtmlNode head = doc.DocumentNode.SelectSingleNode(@"//head");
+            var tt = head.InnerText;
+            StreamReader reader = new StreamReader(new MemoryStream(encoding.GetBytes(tt)), Encoding.Default);
+            tt = reader.ReadToEnd();
+            StreamWriter writer = new StreamWriter("E:\\Temp\\utf.txt", false, Encoding.UTF8);
+            return head;
         }
         #endregion
     }
-#endregion
+    #endregion
 }
