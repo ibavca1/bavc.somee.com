@@ -18,6 +18,7 @@ namespace v0._1.Models.Extensions
         private WebContext _context;
         private Uri _uri;
         private string _content;
+        private Page _page;
     }
 
     public class Page
@@ -40,6 +41,7 @@ namespace v0._1.Models.Extensions
     {
         private WebPage _page;
 
+        #region Содержание страницы в HTML
         /// <summary>
         /// Получить страницу (текстом)
         /// </summary>
@@ -56,7 +58,9 @@ namespace v0._1.Models.Extensions
             }
             return result;
         }
+        #endregion
 
+        #region Пока не работает (заглушка)
         /// <summary>
         /// Получить страницу (текстом)
         /// </summary>
@@ -66,7 +70,9 @@ namespace v0._1.Models.Extensions
         {
             return null;
         }
+        #endregion
 
+        #region Запрос к серверу (возвращает ответ)
         /// <summary>
         /// Получить ответ сервера
         /// </summary>
@@ -80,6 +86,14 @@ namespace v0._1.Models.Extensions
             _response = (HttpWebResponse)_request.GetResponse();
             return _response;
         }
+        #endregion
+
+        #region Получить заголовок
+        public void GetHeadDocument()
+        {
+
+        }
+        #endregion
     }
-    #endregion
+#endregion
 }
