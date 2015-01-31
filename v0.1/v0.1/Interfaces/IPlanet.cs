@@ -11,7 +11,7 @@ namespace v0._1.Interfaces
 
     public interface IPlanets
     {
-        public void AddPlanet();
-        public void AddPlanet(string Name);
+        void AddPlanet();
+        void AddPlanet(string Name);
     }
 }

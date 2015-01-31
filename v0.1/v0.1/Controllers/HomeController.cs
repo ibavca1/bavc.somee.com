@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Text;
 
 //Времменно для теста MySql
 using MySql.Data.MySqlClient;
+
+using v0._1.Models.Extensions;
 
 namespace v0._1.Controllers
 {
@@ -16,7 +19,9 @@ namespace v0._1.Controllers
 
         public ActionResult Index()
         {
-            GetConnectionString();
+            //GetConnectionString();
+            BavcWebRequest bavcRequest = new BavcWebRequest();
+            string content = bavcRequest.GetPageContent(new Uri("http://randstuff.ru/number/"), Encoding.Default);
             return View((Object)GetConnectionString());
         }
 
