@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+
 using v0._1.Interfaces;
 
 namespace v0._1.Models.Planets
@@ -11,6 +12,8 @@ namespace v0._1.Models.Planets
         private int _id;
         private string _name;
         private int _gravity;
+
+        #region Свойства
         public Planet()
         {
             _id = 0;
@@ -28,6 +31,20 @@ namespace v0._1.Models.Planets
             {
                 _name = value;
             }
+        }
+        #endregion
+
+    }
+    public class Planets:IPlanets
+    {
+        List<Planet> _planets = new List<Planet>();
+        public void AddPlanet()
+        {
+
+        }
+        public void AddPlanet(string Name)
+        {
+            
         }
     }
 }
