@@ -44,7 +44,7 @@ namespace v0._1.Models.Planets
         }
         public void AddPlanet(string Name)
         {
-            
+            _planets.Add(new Planet());
         }
     }
 }
