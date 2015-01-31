@@ -20,11 +20,22 @@ namespace v0._1.Models.Extensions
         private string _content;
     }
 
+    public class Page
+    {
+        private string _head;
+        private string _body;
+        private string _footer;
+        private Tuple _options;
+    }
+
+    #region Класс контекста страницы
     public class WebContext
     {
         CookieContainer _cookies;
     }
+    #endregion
 
+    #region Класс запроса к серверу
     public class BavcWebRequest
     {
         private WebPage _page;
@@ -70,5 +81,5 @@ namespace v0._1.Models.Extensions
             return _response;
         }
     }
-
+    #endregion
 }
