@@ -5,14 +5,10 @@ using System.Web;
 using System.Net;
 using System.IO;
 using System.Text;
+using HtmlAgilityPack;
 
 namespace v0._1.Models.Extensions
 {
-    public class Helper
-    {
-
-    }
-
     public class WebPage
     {
         private WebContext _context;
@@ -39,7 +35,10 @@ namespace v0._1.Models.Extensions
     #region Класс запроса к серверу
     public class BavcWebRequest
     {
+        #region Переменные
         private WebPage _page;
+        private Encoding _encoding;
+        #endregion
 
         #region Содержание страницы в HTML
         /// <summary>
@@ -77,7 +76,7 @@ namespace v0._1.Models.Extensions
         /// Получить ответ сервера
         /// </summary>
         /// <param name="uri">Ссылка</param>
-        /// <returns></returns>
+        /// <returns>HttpWebResponse</returns>
         private HttpWebResponse GetAnser(Uri uri)
         {
             HttpWebRequest _request;
@@ -91,7 +90,8 @@ namespace v0._1.Models.Extensions
         #region Получить заголовок
         public void GetHeadDocument()
         {
-
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(GetPageContent(null, _encoding));
         }
         #endregion
     }
