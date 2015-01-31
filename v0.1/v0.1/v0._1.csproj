@@ -117,6 +117,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IPlanet.cs" />
+    <Compile Include="Models\Extensions\WebHelper.cs" />
     <Compile Include="Models\Planets\Planets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
