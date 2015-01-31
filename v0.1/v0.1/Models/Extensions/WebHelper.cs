@@ -22,6 +22,15 @@ namespace v0._1.Models.Extensions
 
     public class WebRequest
     {
+        public string GetPage(Uri _uri)
+        {
+            return null;
+        }
 
+        public WebPage GetPage(Uri _uri)
+        {
+            return null;
+        }
     }
+
 }
