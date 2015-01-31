@@ -7,11 +7,11 @@ namespace v0._1.Interfaces
 {
     public interface IPlanet
     {
-
     }
 
     public interface IPlanets
     {
-
+        public void AddPlanet();
+        public bool AddPlanet(string Name);
     }
 }
