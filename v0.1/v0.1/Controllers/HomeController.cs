@@ -47,7 +47,7 @@ namespace v0._1.Controllers
         public void Test()
         {
             BavcWebRequest bavcRequest = new BavcWebRequest();
-            bavcRequest.GetHeadDocument(Encoding.Default);
+            //bavcRequest.GetHeadDocument(Encoding.Default);
         }
         public int GetCount()
         {

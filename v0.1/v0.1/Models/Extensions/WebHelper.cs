@@ -58,8 +58,8 @@ namespace v0._1.Models.Extensions
             //добавил ссылку
             _uri = uri;
             HttpWebResponse response = GetAnser(uri);
-
-            using (StreamReader stream=new StreamReader(response.GetResponseStream(), encoding))
+            //using (StreamReader stream = new StreamReader(response.GetResponseStream(), encoding))
+            using (StreamReader stream=new StreamReader(response.GetResponseStream(), true))
             {
                 result = stream.ReadToEnd();
             }
@@ -90,6 +90,9 @@ namespace v0._1.Models.Extensions
             HttpWebRequest _request;
             HttpWebResponse _response;
             _request = (HttpWebRequest)WebRequest.Create(uri);
+            WebHeaderCollection webHeader = _request.Headers;
+            webHeader.Add("Accept-Charset: utf-8");
+            //webHeader.Add("Accept-Charset: windows-1251");
             _response = (HttpWebResponse)_request.GetResponse();
             return _response;
         }
@@ -113,7 +116,9 @@ namespace v0._1.Models.Extensions
             var tt = head.InnerText;
             StreamReader reader = new StreamReader(new MemoryStream(encoding.GetBytes(tt)), Encoding.Default);
             tt = reader.ReadToEnd();
-            StreamWriter writer = new StreamWriter("E:\\Temp\\utf.txt", false, Encoding.UTF8);
+            StreamWriter writer = new StreamWriter("C:\\utf.txt", false, Encoding.UTF8);
+            writer.Write(head.InnerText);
+            writer.Close();
             return head;
         }
         #endregion
