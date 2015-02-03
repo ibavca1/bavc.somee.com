@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{22953E
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebParser.Runtime", "WebParser.Runtime\WebParser.Runtime.csproj", "{9BC4D589-42C1-4FC4-ACE4-3C8CA3CD7BD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{636F5EA2-0C83-4733-8FD1-117E9E6B4578}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{636F5EA2-0C83-4733-8FD1-117E9E6B4578}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{636F5EA2-0C83-4733-8FD1-117E9E6B4578}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC4D589-42C1-4FC4-ACE4-3C8CA3CD7BD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC4D589-42C1-4FC4-ACE4-3C8CA3CD7BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC4D589-42C1-4FC4-ACE4-3C8CA3CD7BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC4D589-42C1-4FC4-ACE4-3C8CA3CD7BD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
